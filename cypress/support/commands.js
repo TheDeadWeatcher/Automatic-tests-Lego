@@ -20,8 +20,7 @@
 
   Cypress.Commands.add("searchPhrase", (text, delayValue) => {
     cy.get('[data-test="search-input-button"]').type(text, {
-      delay: delayValue,
-    });
+      delay: delayValue});
   });
 //
 //
