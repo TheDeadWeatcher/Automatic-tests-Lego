@@ -14,8 +14,8 @@ describe("E2E - Search Bar - Lego", () => {
     SearchBar.loopIcon.click();
   });
   it.only("Should type search phrase and verify search result title", () => {
-    cy.searchPhrase("star wars vader {enter}", 1);
+    cy.searchPhrase("star wars vader{enter}", 1);
     SearchBar.searchResultTitle.should("be.visible");
-    SearchBar.searchResultTitle.should('have.text', 'star wars vader ');
+    SearchBar.searchResultTitle.should('have.text', 'star wars vader');
   });
 });
