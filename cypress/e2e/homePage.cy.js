@@ -1,4 +1,5 @@
 /// <reference types="cypress"/>
+// <reference types="cypress-xpath"/>
 
 import HomePage from "../support/pages/home-obj.cy";
 
