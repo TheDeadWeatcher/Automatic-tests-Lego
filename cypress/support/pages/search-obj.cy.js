@@ -1,10 +1,25 @@
+
 class SearchBar {
-  get loopIcon() {
-    return cy.get('[data-test="search-input-button"]');
+
+  // get loopIcon() {
+  //   return cy.get('[data-test="search-input-button"]');
+  // }
+
+  clickLoopIcon () {
+    const loop = cy.get('[data-test="search-input-button"]');
+    loop.click();
   }
 
+    
+  
+
   get searchResultTitle() {
-    return cy.get(".TransformedMessagestyles__SearchResultsText-sc-1pp5hbb-0 > span");
+    return cy.xpath('//span[text()="star wars vader"]');
+    
+  }
+
+  get firstProductResult (){
+    return cy.get('[data-test="product-item"]');
   }
 }
 

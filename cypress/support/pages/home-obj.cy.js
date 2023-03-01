@@ -1,4 +1,7 @@
 class HomePage {
+
+
+
   get topNav() {
     return cy.get(".MainBarstyles__Container-sc-1cg7sjw-1");
   }
