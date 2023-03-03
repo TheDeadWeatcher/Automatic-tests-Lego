@@ -1,17 +1,15 @@
 
 class SearchBar {
 
-  // get loopIcon() {
-  //   return cy.get('[data-test="search-input-button"]');
-  // }
-
   clickLoopIcon () {
     const loop = cy.get('[data-test="search-input-button"]');
     loop.click();
   }
 
-    
-  
+
+  get searchResultProducts() {
+    return cy.get('[data-test="product-leaf-title"]');
+  }
 
   get searchResultTitle() {
     return cy.xpath('//span[text()="star wars vader"]');
