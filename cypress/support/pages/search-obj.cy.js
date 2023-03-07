@@ -19,6 +19,10 @@ class SearchBar {
   get firstProductResult (){
     return cy.get('[data-test="product-item"]');
   }
+
+  get searchResultProductsPrice (){
+    return cy.get('[data-test="product-price"]');
+  }
 }
 
 export default new SearchBar();

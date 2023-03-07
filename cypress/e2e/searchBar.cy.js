@@ -14,7 +14,7 @@ describe("E2E - Search Bar - Lego", () => {
     SearchBar.clickLoopIcon();
   });
   it("Should type search phrase and verify search result title also verify number of product", () => {
-    cy.searchPhrase("star wars vader{enter}", 1);
+    cy.typePhrase("star wars vader{enter}", 1);
     cy.url().should("eq", "https://www.lego.com/pl-pl/search?q=star+wars+vader");
     SearchBar.searchResultTitle.should("be.visible");
     SearchBar.searchResultTitle.should("have.text", "star wars vader");
@@ -27,13 +27,14 @@ describe("E2E - Search Bar - Lego", () => {
  
    });
 
-   it.only('Should verify number of product also verify title of first product, verify title and number of add to cart', () => {
-    cy.searchPhrase("star wars vader{enter}", 1);
+   it('Should verify number of product also verify title of first product, verify title and number of add to cart', () => {
+    cy.typePhrase("star wars vader{enter}", 1);
     SearchBar.firstProductResult.eq(0).invoke("text").as("productThumbnail");
     cy.get("@productThumbnail").its("length").should("be.gt", 5);
     cy.get("@productThumbnail").should("include", "Pluszowy Darth Vader™");
     SearchBar.firstProductResult.as("productCount");
     cy.get("@productCount").should("have.length", 24);
+    
 
    });
 

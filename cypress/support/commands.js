@@ -18,7 +18,7 @@
     cy.get('[data-test="cookie-accept-all"]').click();
   });
 
-  Cypress.Commands.add("searchPhrase", (text, delayValue) => {
+  Cypress.Commands.add("typePhrase", (text, delayValue) => {
     cy.get('[data-test="search-input-button"]').type(text, {
       delay: delayValue});
   });
