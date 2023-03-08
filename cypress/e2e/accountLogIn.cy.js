@@ -7,9 +7,10 @@ describe('Should log in to Lego account', () => {
       cy.acceptEnterPopups(); 
     });
 
-    // test nie przechodzi na przegladarce electron, chrome, edge, firefox ok  ?! lego  wykryło bota 
+    
+    // po wlaczeniu chromeWebSecurity : false - elektron przechodzi, reszta nie :) 
 
-    it.only('Should be correctly log in to Lego account ', () => {
+    it('Should be correctly log in to Lego account ', () => {
         cy.get('[fill-rule="nonzero"]').click();
         cy.get('[data-test="legoid-login-button"]').click();
         cy.get('[name="username"]').type("testlego123456@gmail.com");
