@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+// Please run this test only on electron browser  
 
 describe('Should log in to Lego account', () => {
     beforeEach(() => {
@@ -8,7 +9,7 @@ describe('Should log in to Lego account', () => {
     });
 
     
-    // po wlaczeniu chromeWebSecurity : false - elektron przechodzi, reszta nie :) 
+    // after set  chromeWebSecurity : false - elektron passed the test  :) other browser detected the bot session
 
     it('Should be correctly log in to Lego account ', () => {
         cy.get('[fill-rule="nonzero"]').click();
