@@ -27,17 +27,37 @@ describe("E2E - Search Bar - Lego", () => {
  
    });
 
-   it('Should verify number of product also verify title of first product, verify title and number of add to cart', () => {
+   it('Should verify number of product also verify title of first product,', () => {
     cy.typePhrase("star wars vader{enter}", 1);
     SearchBar.firstProductResult.eq(0).invoke("text").as("productThumbnail");
     cy.get("@productThumbnail").its("length").should("be.gt", 5);
     cy.get("@productThumbnail").should("include", "Pluszowy Darth Vader™");
     SearchBar.firstProductResult.as("productCount");
     cy.get("@productCount").should("have.length", 24);
-    
-
    });
 
-  
+   it('Shouled type incorrect phrase and verify title of search result', () => {
+    cy.typePhrase("12312321{enter}", 1);
+    cy.get('[data-test="no-results"]').should('contain', "Szukaj ponownie")
+   });
+
+   it("Should  click on checkbox hełmy and verify result number of products", () => {
+     cy.typePhrase("star wars vader{enter}", 1);
+     //cy.get('[data-test="checkbox"]').check(); all 18
+     cy.xpath('//*[text()="Hełmy"]').click();
+     cy.get('[data-test="product-leaf"]').then(($iteam) => {
+       const count = $iteam.length;
+       cy.get('[data-test="product-leaf"]').should("have.length", count);
+     });
+   });
+
+   it.only('Should check and validate all checkbox from search result', () => {
+      cy.typePhrase("star wars vader{enter}", 1);
+      //cy.get('input[type = "checkbox"]').check().should('be.checked');
+      cy.get('[aria-label="Filtr: Zestawy, liczba produktów: 116"]').shadow();
+    
+   });
+    
+ 
 
 });

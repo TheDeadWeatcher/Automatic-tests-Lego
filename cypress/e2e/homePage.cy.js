@@ -26,7 +26,7 @@ describe("E2E - Home Page - Lego ", () => {
     HomePage.subscribeInput.should("be.visible");
     HomePage.subscribeInput.should("be.visible");
   });
-  it.only('Should scroll to footer section and click on about', () => {
+  it('Should scroll to footer section and click on about', () => {
     FooterSection.aboutGroupLego.should("be.visible");
     HomePage.footer.scrollIntoView();
     FooterSection.aboutGroupLego.click();
