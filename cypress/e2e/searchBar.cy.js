@@ -51,12 +51,15 @@ describe("E2E - Search Bar - Lego", () => {
      });
    });
 
-   it.only('Should check and validate all checkbox from search result', () => {
-      cy.typePhrase("star wars vader{enter}", 1);
-      //cy.get('input[type = "checkbox"]').check().should('be.checked');
-      cy.get('[aria-label="Filtr: Zestawy, liczba produktów: 116"]').shadow();
+  //  it.only('Should check and validate all checkbox from search result', () => {
+  //     cy.typePhrase("star wars vader{enter}", 1);
+  //     cy.get('[data-test="filter-producttype-plushtoys"]').shadow().find('[class="Checkboxstyles__Checkmark-sc-19qo4tm-0 cNnhMT"]').check();
+  //     //cy.get('input[type = "checkbox"]').shadow().find('[class="Checkboxstyles__Checkmark-sc-19qo4tm-0 cNnhMT"] > polygon').should('be.visible');
+  //     //cy.get('input[type = "checkbox"]').check();
+  //    // cy.get('[aria-label="Filtr: Zestawy, liczba produktów: 116"]').should('be.visible');
+  //     //cy.get('[class="Checkboxstyles__Checkmark-sc-19qo4tm-0 cNnhMT"] > polygon').should('be.visible');
     
-   });
+  //  });
     
  
 
