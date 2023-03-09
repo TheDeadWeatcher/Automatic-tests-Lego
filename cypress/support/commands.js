@@ -22,6 +22,13 @@
     cy.get('[data-test="search-input-button"]').type(text, {
       delay: delayValue});
   });
+
+  // Cypress.Commands.add("clickBtn", (selector) => {
+  //   const sel = typeof selector;
+  //   sel.click(); 
+  // }); pomysl jak zrobic comandsa pod clikanie w jaki kolwiek selector 
+
+
 //
 //
 // -- This is a child command --

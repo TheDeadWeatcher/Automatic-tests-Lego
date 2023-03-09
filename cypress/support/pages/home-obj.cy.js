@@ -12,6 +12,7 @@ class HomePage {
     );
   }
 
+
   get recommendetSection() {
     return cy.get('[data-test="product-recommended"]');
   }
@@ -31,6 +32,14 @@ class HomePage {
   get footerSocialLinks() {
     return cy.get('[data-test="footer-social-links"]');
   }
-}
+
+
+  clickSLiderBtn () {
+    const btn = cy.get ('[kind="lightTheme"]');
+    btn.should('be.visible');
+    btn.click();
+  }
+
+}  
 
 export default new HomePage();

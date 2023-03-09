@@ -3,6 +3,7 @@ class SearchBar {
 
   clickLoopIcon () {
     const loop = cy.get('[data-test="search-input-button"]');
+    loop.should("be.visible");
     loop.click();
   }
 
