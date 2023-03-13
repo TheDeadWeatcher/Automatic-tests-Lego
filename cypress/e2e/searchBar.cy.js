@@ -4,18 +4,23 @@ import SearchBar from "../support/pages/search-obj.cy.js";
 
 
 describe("E2E - Search Bar - Lego", () => {
+  before(function(){
+    cy.fixture('pagesUrl').then(function(url){
+      globalThis.url = url;
+    });
+  });
   beforeEach(() => {
     cy.visit("/");
     cy.acceptEnterPopups();
   });
 
   it("should open home page and verify url also verify visible of search icon", () => {
-    cy.url().should("eq", "https://www.lego.com/pl-pl");
+    cy.url().should("eq", url.homeUrl);
     SearchBar.clickLoopIcon();
   });
   it("Should type search phrase and verify search result title also verify number of product", () => {
     cy.typePhrase("star wars vader{enter}", 1);
-    cy.url().should("eq", "https://www.lego.com/pl-pl/search?q=star+wars+vader");
+    cy.url().should("eq", url.resultUrl);
     SearchBar.searchResultTitle.should("be.visible");
     SearchBar.searchResultTitle.should("have.text", "star wars vader");
     SearchBar.firstProductResult.its("length").should("eq", 24);
@@ -49,6 +54,16 @@ describe("E2E - Search Bar - Lego", () => {
        const count = $iteam.length;
        cy.get('[data-test="product-leaf"]').should("have.length", count);
      });
+   });
+
+   it.only('Should add to cart the product and verify number of products in basket icon', () => {
+      cy.typePhrase("star wars vader{enter}", 1);
+      cy.url().should("eq", url.resultUrl);
+      cy.selectProduct("Pluszowy Darth Vader™");
+      cy.url().should("eq","https://www.lego.com/pl-pl/product/darth-vader-plush-5007136");
+      cy.get('[kind="product"]').click();
+      cy.get('[data-test="continue-shopping-button"]').click();
+      cy.get('[data-test="util-bar-cart"]').should('have.text', '(1)' );
    });
 
 

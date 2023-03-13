@@ -37,9 +37,25 @@ describe("E2E - Home Page - Lego ", () => {
     FooterSection.aboutGroupLego.click();
   });
 
-  it.only('Should verify slider is visible btn and link direction(verify url)', () => {
+  it('Should verify slider is visible btn and link direction(verify url)', () => {
     HomePage.clickSLiderBtn();
     cy.url().should("eq", url.sliderBtnUrl);
+  });
+  it('Should verify visiblity and number of links in section special category', () => {
+     HomePage.specialCatBaner.should("be.visible");
+     HomePage.specialCatBaner.then(($link) =>{
+      const count =$link.length
+      HomePage.specialCatBaner.should('have.length', (count));
+    });
+  });
+
+  it.only('Should verify direction, url and title in special category of Star Wars link', () => {
+    cy.get('[data-test="quicklink-link"]:nth-child(4)').click();
+    cy.url('eq', url.starWarsPageUrl);
+    cy.get("h1").then(($title) =>{
+      const title = $title.text();
+      cy.get("h1").should('have.text', (title));
+    });
   });
 
 });

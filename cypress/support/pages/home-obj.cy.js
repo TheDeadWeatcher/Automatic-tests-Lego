@@ -18,7 +18,7 @@ class HomePage {
   }
 
   get bestsellerSection() {
-    return cy.get("#blta591157bda5bb6f0");
+    return cy.get("#bltc656648b79074da5");
   }
 
   get footer() {
@@ -31,6 +31,10 @@ class HomePage {
 
   get footerSocialLinks() {
     return cy.get('[data-test="footer-social-links"]');
+  }
+
+  get specialCatBaner () {
+    return cy.get('[data-test="quicklink-link"]');
   }
 
 
