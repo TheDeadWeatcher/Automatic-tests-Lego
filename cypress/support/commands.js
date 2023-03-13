@@ -12,6 +12,14 @@
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 
+  Cypress.Commands.add("loginLegoAccount", (email, pass) => {
+    cy.get('[fill-rule="nonzero"]').click();
+    cy.get('[data-test="legoid-login-button"]').click();
+    cy.get('[name="username"]').type(email);
+    cy.get('[name="password"]').type(pass);
+    cy.get('[data-testid="loginBtn"]').click();
+    
+  });
 
   Cypress.Commands.add("acceptEnterPopups", () => {
     cy.get('[data-test="age-gate-grown-up-cta"]').click();
@@ -32,9 +40,9 @@
     });
   });
 
-  // Cypress.Commands.add("clickBtn", (selector) => {
-  //   const sel = typeof selector;
-  //   sel.click(); 
+  Cypress.Commands.add("clickBtn", ($selector) => {
+    cy.get($selector).click()
+  })
   // }); pomysl jak zrobic comandsa pod clikanie w jaki kolwiek selector 
 
 

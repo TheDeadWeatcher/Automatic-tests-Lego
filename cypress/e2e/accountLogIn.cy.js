@@ -17,23 +17,17 @@ describe('E2E - account tests', () => {
     });
 
     it('Should be correctly log in to Lego account ', () => {
-        cy.get('[fill-rule="nonzero"]').click();
-        cy.get('[data-test="legoid-login-button"]').click();
-        cy.get('[name="username"]').type(data.email);
-        cy.get('[name="password"]').type(data.pass);
-        cy.get('[data-testid="loginBtn"]').click();
-        cy.get('[fill-rule="nonzero"]').click();
-        cy.url().should("eq", url.accountUrl);
+      cy.loginLegoAccount(data.email, data.pass);
+      cy.clickBtn('[fill-rule="nonzero"]');
+      cy.url().should("eq", url.accountUrl);
+      //cy.get("h1").should("contain", "interruption");
     });
 
 
     it("Should faild log in to Lego account ", () => {
-      cy.get('[fill-rule="nonzero"]').click();
-      cy.get('[data-test="legoid-login-button"]').click();
-      cy.get('[name="username"]').type(data.email);
-      cy.get('[name="password"]').type(data.incorectPass);
-      cy.get('[data-testid="loginBtn"]').click();
+      cy.loginLegoAccount(data.email, data.incorectPass);
       cy.get(".login-error").should("contain", "hasło nie odpowiadają");
+      //cy.get("h1").should("contain", "interruption");
     });
     
     

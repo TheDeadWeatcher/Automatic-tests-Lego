@@ -56,7 +56,7 @@ describe("E2E - Search Bar - Lego", () => {
      });
    });
 
-   it.only('Should add to cart the product and verify number of products in basket icon', () => {
+   it('Should add to cart the product and verify number of products in basket icon', () => {
       cy.typePhrase("star wars vader{enter}", 1);
       cy.url().should("eq", url.resultUrl);
       cy.selectProduct("Pluszowy Darth Vader™");
@@ -64,6 +64,19 @@ describe("E2E - Search Bar - Lego", () => {
       cy.get('[kind="product"]').click();
       cy.get('[data-test="continue-shopping-button"]').click();
       cy.get('[data-test="util-bar-cart"]').should('have.text', '(1)' );
+   });
+
+   it.only("Should add to cart the product and verify number of products in basket icon", () => {
+     cy.typePhrase("star wars vader{enter}", 1);
+     cy.url().should("eq", url.resultUrl);
+     cy.selectProduct("Pluszowy Darth Vader™");
+     cy.url().should(
+       "eq",
+       "https://www.lego.com/pl-pl/product/darth-vader-plush-5007136"
+     );
+     cy.get('[kind="product"]').click();
+     cy.get('[data-test="continue-shopping-button"]').click();
+     cy.get('[data-test="util-bar-cart"]').should("have.text", "(1)");
    });
 
 
